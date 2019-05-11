@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5.0" type="library" method="upgrade">
+    <name>Jinterventionimage</name>
+    <libraryname>jinterventionimage</libraryname>
+    <author>https://olivervogel.com</author>
+    <creationDate>2013</creationDate>
+    <copyright>http://image.intervention.io/legal/license</copyright>
+    <license>MIT License</license>
+    <authorEmail></authorEmail>
+    <authorUrl>http://image.intervention.io</authorUrl>
+    <version>2.4.2</version>
+    <description>Library for images.</description>
+
+    <updateservers>
+        <server type="extension" priority="1" name="Lib JInterventionimage">
+            https://hika.su/update/free/lib_jinterventionimage.xml
+        </server>
+    </updateservers>
+
+    <files>
+        <folder>Intervention</folder>
+        <filename>jinterventionimage.php</filename>
+    </files>
+
+</extension>
