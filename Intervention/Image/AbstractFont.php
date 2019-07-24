@@ -1,6 +1,13 @@
-<?php
+<?php namespace Intervention\Image;
+/**
+ * @package    Intervention Image
+ * @author     Oliver Vogel <info@olivervogel.com>
+ * @copyright  Copyright 2015 Oliver Vogel
+ * @license    MIT License; see license.txt
+ * @link       http://image.intervention.io
+ */
 
-namespace Intervention\Image;
+defined('_JEXEC') or die;
 
 abstract class AbstractFont
 {
