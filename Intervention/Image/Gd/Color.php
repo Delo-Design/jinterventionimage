@@ -1,15 +1,9 @@
-<?php namespace Intervention\Image\Gd;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd;
 
 use Intervention\Image\AbstractColor;
+use Intervention\Image\Exception\NotSupportedException;
 
 class Color extends AbstractColor
 {
@@ -141,7 +135,7 @@ class Color extends AbstractColor
      */
     public function initFromObject($value)
     {
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "GD colors cannot init from ImagickPixel objects."
         );
     }

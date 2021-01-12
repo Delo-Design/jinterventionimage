@@ -1,15 +1,11 @@
-<?php namespace Intervention\Image\Gd\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd\Commands;
 
-class ResetCommand extends \Intervention\Image\Commands\AbstractCommand
+use Intervention\Image\Commands\AbstractCommand;
+use Intervention\Image\Exception\RuntimeException;
+
+class ResetCommand extends AbstractCommand
 {
     /**
      * Resets given image to its backup state
@@ -35,7 +31,7 @@ class ResetCommand extends \Intervention\Image\Commands\AbstractCommand
             return true;
         }
 
-        throw new \Intervention\Image\Exception\RuntimeException(
+        throw new RuntimeException(
             "Backup not available. Call backup() before reset()."
         );
     }

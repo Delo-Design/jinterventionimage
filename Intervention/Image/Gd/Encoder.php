@@ -1,13 +1,8 @@
-<?php namespace Intervention\Image\Gd;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd;
+
+use Intervention\Image\Exception\NotSupportedException;
 
 class Encoder extends \Intervention\Image\AbstractEncoder
 {
@@ -65,7 +60,7 @@ class Encoder extends \Intervention\Image\AbstractEncoder
     protected function processWebp()
     {
         if ( ! function_exists('imagewebp')) {
-            throw new \Intervention\Image\Exception\NotSupportedException(
+            throw new NotSupportedException(
                 "Webp format is not supported by PHP installation."
             );
         }
@@ -86,7 +81,7 @@ class Encoder extends \Intervention\Image\AbstractEncoder
      */
     protected function processTiff()
     {
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "TIFF format is not supported by Gd Driver."
         );
     }
@@ -98,7 +93,7 @@ class Encoder extends \Intervention\Image\AbstractEncoder
      */
     protected function processBmp()
     {
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "BMP format is not supported by Gd Driver."
         );
     }
@@ -110,7 +105,7 @@ class Encoder extends \Intervention\Image\AbstractEncoder
      */
     protected function processIco()
     {
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "ICO format is not supported by Gd Driver."
         );
     }
@@ -122,7 +117,7 @@ class Encoder extends \Intervention\Image\AbstractEncoder
      */
     protected function processPsd()
     {
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "PSD format is not supported by Gd Driver."
         );
     }

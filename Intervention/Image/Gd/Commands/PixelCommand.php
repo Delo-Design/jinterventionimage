@@ -1,17 +1,11 @@
-<?php namespace Intervention\Image\Gd\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd\Commands;
 
+use Intervention\Image\Commands\AbstractCommand;
 use Intervention\Image\Gd\Color;
 
-class PixelCommand extends \Intervention\Image\Commands\AbstractCommand
+class PixelCommand extends AbstractCommand
 {
     /**
      * Draws one pixel to a given image

@@ -1,15 +1,9 @@
-<?php namespace Intervention\Image;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image;
 
 use GuzzleHttp\Psr7\Stream;
+use Intervention\Image\Exception\NotReadableException;
 use Psr\Http\Message\StreamInterface;
 
 abstract class AbstractDecoder
@@ -87,7 +81,7 @@ abstract class AbstractDecoder
             return $this->initFromBinary($data);
         }
 
-        throw new \Intervention\Image\Exception\NotReadableException(
+        throw new NotReadableException(
             "Unable to init from given url (".$url.")."
         );
     }
@@ -130,7 +124,7 @@ abstract class AbstractDecoder
             return $this->initFromBinary($data);
         }
 
-        throw new \Intervention\Image\Exception\NotReadableException(
+        throw new NotReadableException(
             "Unable to init from given stream"
         );
     }
@@ -269,7 +263,7 @@ abstract class AbstractDecoder
             return false;
         }
 
-        return base64_encode(base64_decode($this->data)) === $this->data;
+        return base64_encode(base64_decode($this->data)) === str_replace(["\n", "\r"], '', $this->data);
     }
 
     /**
@@ -349,7 +343,7 @@ abstract class AbstractDecoder
                 return $this->initFromBinary(base64_decode($this->data));
 
             default:
-                throw new Exception\NotReadableException("Image source not readable");
+                throw new NotReadableException("Image source not readable");
         }
     }
 

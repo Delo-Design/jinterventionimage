@@ -1,19 +1,14 @@
-<?php namespace Intervention\Image\Imagick\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Imagick\Commands;
 
+use Intervention\Image\Commands\AbstractCommand;
+use Intervention\Image\Exception\NotReadableException;
 use Intervention\Image\Image;
-use Intervention\Image\Imagick\Decoder;
 use Intervention\Image\Imagick\Color;
+use Intervention\Image\Imagick\Decoder;
 
-class FillCommand extends \Intervention\Image\Commands\AbstractCommand
+class FillCommand extends AbstractCommand
 {
     /**
      * Fills image with color or pattern
@@ -34,7 +29,7 @@ class FillCommand extends \Intervention\Image\Commands\AbstractCommand
             $source = new Decoder;
             $filling = $source->init($filling);
 
-        } catch (\Intervention\Image\Exception\NotReadableException $e) {
+        } catch (NotReadableException $e) {
 
             // set solid color filling
             $filling = new Color($filling);

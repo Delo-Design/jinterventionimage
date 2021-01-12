@@ -1,17 +1,11 @@
-<?php namespace Intervention\Image\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Commands;
 
 use Closure;
+use Intervention\Image\Exception\InvalidArgumentException;
 
-class PolygonCommand extends \Intervention\Image\Commands\AbstractCommand
+class PolygonCommand extends AbstractCommand
 {
     /**
      * Draw a polygon on given image
@@ -28,13 +22,13 @@ class PolygonCommand extends \Intervention\Image\Commands\AbstractCommand
 
         // check if number if coordinates is even
         if ($vertices_count % 2 !== 0) {
-            throw new \Intervention\Image\Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                 "The number of given polygon vertices must be even."
             );
         }
 
         if ($vertices_count < 6) {
-            throw new \Intervention\Image\Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                 "You must have at least 3 points in your array."
             );
         }

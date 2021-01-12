@@ -1,15 +1,9 @@
-<?php namespace Intervention\Image\Imagick\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Imagick\Commands;
 
 use Intervention\Image\Commands\ExifCommand as BaseCommand;
+use Intervention\Image\Exception\NotSupportedException;
 
 class ExifCommand extends BaseCommand
 {
@@ -42,7 +36,7 @@ class ExifCommand extends BaseCommand
         $core = $image->getCore();
 
         if ( ! method_exists($core, 'getImageProperties')) {
-            throw new \Intervention\Image\Exception\NotSupportedException(
+            throw new NotSupportedException(
                 "Reading Exif data is not supported by this PHP installation."
             );
         }

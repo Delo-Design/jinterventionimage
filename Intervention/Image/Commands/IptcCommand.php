@@ -1,13 +1,8 @@
-<?php namespace Intervention\Image\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Commands;
+
+use Intervention\Image\Exception\NotSupportedException;
 
 class IptcCommand extends AbstractCommand
 {
@@ -20,7 +15,7 @@ class IptcCommand extends AbstractCommand
     public function execute($image)
     {
         if ( ! function_exists('iptcparse')) {
-            throw new \Intervention\Image\Exception\NotSupportedException(
+            throw new NotSupportedException(
                 "Reading Iptc data is not supported by this PHP installation."
             );
         }

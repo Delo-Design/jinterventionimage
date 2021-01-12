@@ -1,18 +1,12 @@
-<?php namespace Intervention\Image\Gd\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd\Commands;
 
-use Intervention\Image\Gd\Decoder;
+use Intervention\Image\Commands\AbstractCommand;
 use Intervention\Image\Gd\Color;
+use Intervention\Image\Gd\Decoder;
 
-class FillCommand extends \Intervention\Image\Commands\AbstractCommand
+class FillCommand extends AbstractCommand
 {
     /**
      * Fills image with color or pattern

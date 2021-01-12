@@ -1,15 +1,10 @@
-<?php namespace Intervention\Image\Imagick;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Imagick;
 
-class Color extends \Intervention\Image\AbstractColor
+use Intervention\Image\AbstractColor;
+
+class Color extends AbstractColor
 {
     /**
      * ImagickPixel containing current color information
@@ -185,7 +180,7 @@ class Color extends \Intervention\Image\AbstractColor
      * @param  int           $tolerance
      * @return boolean
      */
-    public function differs(\Intervention\Image\AbstractColor $color, $tolerance = 0)
+    public function differs(AbstractColor $color, $tolerance = 0)
     {
         $color_tolerance = round($tolerance * 2.55);
         $alpha_tolerance = round($tolerance);

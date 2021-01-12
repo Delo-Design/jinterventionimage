@@ -1,15 +1,10 @@
-<?php namespace Intervention\Image\Imagick\Commands;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Imagick\Commands;
 
-class SharpenCommand extends \Intervention\Image\Commands\AbstractCommand
+use Intervention\Image\Commands\AbstractCommand;
+
+class SharpenCommand extends AbstractCommand
 {
     /**
      * Sharpen image

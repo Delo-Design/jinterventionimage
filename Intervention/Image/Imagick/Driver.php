@@ -1,15 +1,12 @@
-<?php namespace Intervention\Image\Imagick;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Imagick;
 
-class Driver extends \Intervention\Image\AbstractDriver
+use Intervention\Image\AbstractDriver;
+use Intervention\Image\Exception\NotSupportedException;
+use Intervention\Image\Image;
+
+class Driver extends AbstractDriver
 {
     /**
      * Creates new instance of driver
@@ -20,7 +17,7 @@ class Driver extends \Intervention\Image\AbstractDriver
     public function __construct(Decoder $decoder = null, Encoder $encoder = null)
     {
         if ( ! $this->coreAvailable()) {
-            throw new \Intervention\Image\Exception\NotSupportedException(
+            throw new NotSupportedException(
                 "ImageMagick module not available with this PHP installation."
             );
         }
@@ -49,7 +46,7 @@ class Driver extends \Intervention\Image\AbstractDriver
         $core->setColorspace(\Imagick::COLORSPACE_UNDEFINED);
 
         // build image
-        $image = new \Intervention\Image\Image(new static, $core);
+        $image = new Image(new static, $core);
 
         return $image;
     }

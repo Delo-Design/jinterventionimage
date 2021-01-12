@@ -1,18 +1,12 @@
-<?php namespace Intervention\Image\Gd\Shapes;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image\Gd\Shapes;
 
-use Intervention\Image\Image;
+use Intervention\Image\AbstractShape;
 use Intervention\Image\Gd\Color;
+use Intervention\Image\Image;
 
-class PolygonShape extends \Intervention\Image\AbstractShape
+class PolygonShape extends AbstractShape
 {
     /**
      * Array of points of polygon

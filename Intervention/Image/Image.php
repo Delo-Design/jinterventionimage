@@ -1,14 +1,9 @@
-<?php namespace Intervention\Image;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image;
 
+use Intervention\Image\Exception\NotWritableException;
+use Intervention\Image\Exception\RuntimeException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -131,23 +126,28 @@ class Image extends File
      *
      * @param  string  $path
      * @param  int     $quality
+     * @param  string  $format
      * @return \Intervention\Image\Image
      */
-    public function save($path = null, $quality = null)
+    public function save($path = null, $quality = null, $format = null)
     {
         $path = is_null($path) ? $this->basePath() : $path;
 
         if (is_null($path)) {
-            throw new Exception\NotWritableException(
+            throw new NotWritableException(
                 "Can't write to undefined path."
             );
         }
 
-        $data = $this->encode(pathinfo($path, PATHINFO_EXTENSION), $quality);
+        if ($format === null) {
+            $format = pathinfo($path, PATHINFO_EXTENSION);
+        }
+
+        $data = $this->encode($format, $quality);
         $saved = @file_put_contents($path, $data);
 
         if ($saved === false) {
-            throw new Exception\NotWritableException(
+            throw new NotWritableException(
                 "Can't write image data to path ({$path})"
             );
         }
@@ -223,7 +223,7 @@ class Image extends File
         $name = is_null($name) ? 'default' : $name;
 
         if ( ! $this->backupExists($name)) {
-            throw new \Intervention\Image\Exception\RuntimeException(
+            throw new RuntimeException(
                 "Backup with name ({$name}) not available. Call backup() before reset()."
             );
         }

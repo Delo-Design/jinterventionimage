@@ -1,13 +1,8 @@
-<?php namespace Intervention\Image;
-/**
- * @package    Intervention Image
- * @author     Oliver Vogel <info@olivervogel.com>
- * @copyright  Copyright 2015 Oliver Vogel
- * @license    MIT License; see license.txt
- * @link       http://image.intervention.io
- */
+<?php
 
-defined('_JEXEC') or die;
+namespace Intervention\Image;
+
+use Intervention\Image\Exception\NotSupportedException;
 
 abstract class AbstractDriver
 {
@@ -121,7 +116,7 @@ abstract class AbstractDriver
             return $classnameGlobal;
         }
 
-        throw new \Intervention\Image\Exception\NotSupportedException(
+        throw new NotSupportedException(
             "Command ({$name}) is not available for driver ({$drivername})."
         );
     }
