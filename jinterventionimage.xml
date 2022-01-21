@@ -15,6 +15,9 @@
         <server type="extension" priority="1" name="Lib JInterventionimage">
             https://hika.su/update/free/lib_jinterventionimage.xml
         </server>
+        <server type="extension" priority="2" name="WebTolk Lib JInterventionimage">
+            https://web-tolk.ru/component/swjprojects/jupdate.html?element=lib_jinterventionimage
+        </server>
     </updateservers>
 
     <files>
