@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 use Intervention\Image\ImageManagerStatic as Image;
 use Joomla\CMS\Filesystem\Folder;
 use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Version;
 
 class JInterventionimage
 {
@@ -26,7 +27,18 @@ class JInterventionimage
 	 */
 	public static function getInstance($options = ['driver' => 'gd'])
 	{
-		JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage');
+		
+		$jversion = new Version();
+
+		if (version_compare($jversion->getShortVersion(), '4.0', '<')) {
+			// only for Joomla 3.x
+				JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage');
+
+		} else {
+			// only for Joomla 4.x
+			JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage'. DIRECTORY_SEPARATOR . 'Intervention'. DIRECTORY_SEPARATOR . 'Image');
+		}
+		
 		return Image::configure($options);
 	}
 
