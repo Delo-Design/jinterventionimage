@@ -77,7 +77,7 @@ class JInterventionimage
         if($thumb_path === null)
         {
             $pathThumb = implode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb']));
-            $pathFileThumb = implode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb'])) . DIRECTORY_SEPARATOR . $file;
+            $pathFileThumb = jinterventionimage . phpimplode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb'])) . $file;
         }
         else
         {
