@@ -23,7 +23,7 @@
 
     <files>
         <folder>Intervention</folder>
-        <filename>jinterventionimage.php</filename>
+        <folder>src</folder>
     </files>
 
 </extension>
