@@ -80,7 +80,7 @@ class Manager
 		if ($thumb_path === null)
 		{
 			$pathThumb     = implode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb']));
-			$pathFileThumb = jinterventionimage . phpimplode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb'])) . $file;
+			$pathFileThumb = implode(DIRECTORY_SEPARATOR, array_merge($paths, ['_thumb'])) . DIRECTORY_SEPARATOR . $file;
 		}
 		else
 		{
