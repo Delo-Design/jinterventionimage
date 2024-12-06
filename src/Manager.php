@@ -11,10 +11,8 @@
 defined('_JEXEC') or die;
 
 use Intervention\Image\ImageManagerStatic as Image;
-use JLoader;
 use Joomla\CMS\Filesystem\Folder;
 use Joomla\CMS\Filesystem\Path;
-use Joomla\CMS\Version;
 
 class Manager
 {
@@ -28,19 +26,7 @@ class Manager
 	 */
 	public static function getInstance($options = ['driver' => 'gd'])
 	{
-		$jversion = new Version();
-
-		if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-		{
-			// only for Joomla 3.x
-			JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage');
-
-		}
-		else
-		{
-			// only for Joomla 4.x|5x
-			JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage' . DIRECTORY_SEPARATOR . 'Intervention' . DIRECTORY_SEPARATOR . 'Image');
-		}
+		require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 		return Image::configure($options);
 	}
