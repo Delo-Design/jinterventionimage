@@ -1,0 +1,27 @@
+{
+	"type": "joomla-library",
+	"description": "Libraries Image Intervention for Joomla!",
+	"authors": [
+		{
+			"name": "Dmitrii Cymbal",
+			"role": "Developer, maintainer",
+			"email": "cymbal@delo-design.ru",
+			"homepage": "https://delo-design.ru"
+		}
+	],
+	"minimum-stability": "stable",
+	"require": {
+		"php": ">=7.1",
+		"intervention/image": "2.7"
+	},
+	"replace": {
+		"guzzlehttp/psr7": "*"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.1"
+		},
+		"prepend-autoloader": false
+	}
+}

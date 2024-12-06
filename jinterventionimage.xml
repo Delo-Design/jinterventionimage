@@ -22,8 +22,8 @@
     </updateservers>
 
     <files>
-        <folder>Intervention</folder>
         <folder>src</folder>
+        <folder>vendor</folder>
     </files>
 
 </extension>
