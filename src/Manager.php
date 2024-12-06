@@ -76,8 +76,6 @@ class Manager
             $pathFileThumb = Path::clean($pathThumb . DIRECTORY_SEPARATOR . $file);
         }
 
-        $params = [];
-
         $fullPathThumb = Path::clean(JPATH_ROOT . DIRECTORY_SEPARATOR . $pathThumb . DIRECTORY_SEPARATOR . $file);
 
         //если есть превью, то отдаем ссылку на файл
@@ -130,7 +128,6 @@ class Manager
      */
     public static function resize($file, $width_fit, $height_fit)
     {
-        list($width, $height, $type, $attr) = getimagesize($file);
         $max_width  = (int)$width_fit;
         $max_height = (int)$height_fit;
 
@@ -195,9 +192,6 @@ class Manager
      */
     public static function fit($file, $width_fit, $height_fit)
     {
-        list($width, $height, $type, $attr) = getimagesize($file);
-        $newWidth   = $width;
-        $newHeight  = $height;
         $max_width  = (int)$width_fit;
         $max_height = (int)$height_fit;
 
