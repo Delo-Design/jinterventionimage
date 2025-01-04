@@ -8,7 +8,7 @@
     <license>MIT License</license>
     <authorEmail></authorEmail>
     <authorUrl>https://image.intervention.io</authorUrl>
-    <version>2.7.3</version>
+    <version>BUILD_VERSION</version>
     <description>Library for images.</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
     <updateservers>
@@ -16,7 +16,7 @@
             https://hika.su/update/free/lib_jinterventionimage.xml
         </server>
         <server type="extension" priority="2" name="WebTolk Lib JInterventionimage">
-            https://web-tolk.ru/component/swjprojects/jupdate.html?element=lib_jinterventionimage
+            https://web-tolk.ru/component/swjprojects/jupdate?element=lib_jinterventionimage
         </server>
     </updateservers>
     <files>
