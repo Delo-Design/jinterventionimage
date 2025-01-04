@@ -12,7 +12,7 @@ $manifest = file_get_contents($manifest_path);
 $find_version = '';
 
 foreach ($lockfile['packages'] as $package) {
-	if ($package['name'] === 'mpdf/mpdf') {
+	if ($package['name'] === 'intervention/image') {
 		$find_version = str_replace('v', '', $package['version']);
 	}
 }
