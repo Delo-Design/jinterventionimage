@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.7.1.2" type="library" method="upgrade">
+<extension type="library" method="upgrade">
     <name>Jinterventionimage</name>
     <libraryname>jinterventionimage</libraryname>
     <author>https://olivervogel.com</author>
     <creationDate>2013</creationDate>
-    <copyright>http://image.intervention.io/legal/license</copyright>
+    <copyright>https://image.intervention.io/legal/license</copyright>
     <license>MIT License</license>
     <authorEmail></authorEmail>
-    <authorUrl>http://image.intervention.io</authorUrl>
+    <authorUrl>https://image.intervention.io</authorUrl>
     <version>2.7.3</version>
     <description>Library for images.</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
-
     <updateservers>
         <server type="extension" priority="1" name="Lib JInterventionimage">
             https://hika.su/update/free/lib_jinterventionimage.xml
@@ -20,10 +19,10 @@
             https://web-tolk.ru/component/swjprojects/jupdate.html?element=lib_jinterventionimage
         </server>
     </updateservers>
-
     <files>
-        <folder>Intervention</folder>
+        <folder>libraries</folder>
         <folder>src</folder>
+        <filename>jinterventionimage.xml</filename>
     </files>
 
 </extension>
