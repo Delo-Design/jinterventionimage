@@ -1,4 +1,6 @@
-<?php namespace Joomla\Libraries\JInterventionimage;
+<?php
+
+namespace Joomla\Libraries\JInterventionimage;
 /**
  * @package    jinterventionimage
  * @author     Dmitry Tsymbal <cymbal@delo-design.ru>
@@ -7,44 +9,28 @@
  * @link       https://delo-design.ru
  */
 
+use Intervention\Image\ImageManager as Image;
+use JLoader;
+use Joomla\Filesystem\Folder;
+use Joomla\Filesystem\Path;
+use Joomla\CMS\Version;
+use function defined;
+use function str_replace;
+use function explode;
+use function array_pop;
+use function mb_strtolower;
+use function implode;
+use function file_exists;
+use function extension_loaded;
+use function getimagesize;
+use function round;
+use function copy;
+use function in_array;
 
 defined('_JEXEC') or die;
 
-use Intervention\Image\ImageManagerStatic as Image;
-use JLoader;
-use Joomla\CMS\Filesystem\Folder;
-use Joomla\CMS\Filesystem\Path;
-use Joomla\CMS\Version;
-
 class Manager
 {
-
-	/**
-	 * @param   array  $options
-	 *
-	 * @return \Intervention\Image\ImageManager
-	 *
-	 * @since version
-	 */
-	public static function getInstance($options = ['driver' => 'gd'])
-	{
-		$jversion = new Version();
-
-		if (version_compare($jversion->getShortVersion(), '4.0', '<'))
-		{
-			// only for Joomla 3.x
-			JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage');
-
-		}
-		else
-		{
-			// only for Joomla 4.x|5x
-			JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage' . DIRECTORY_SEPARATOR . 'Intervention' . DIRECTORY_SEPARATOR . 'Image');
-		}
-
-		return Image::configure($options);
-	}
-
 
 	/**
 	 * @param   string  $source
@@ -147,7 +133,6 @@ class Manager
 
 	}
 
-
 	/**
 	 * @param   string  $file
 	 * @param   int     $width_fit
@@ -156,23 +141,56 @@ class Manager
 	 *
 	 * @since version
 	 */
-	public static function resize($file, $width_fit, $height_fit)
+	public static function fit($file, $width_fit, $height_fit)
 	{
 		list($width, $height, $type, $attr) = getimagesize($file);
+		$newWidth   = $width;
+		$newHeight  = $height;
 		$max_width  = (int) $width_fit;
 		$max_height = (int) $height_fit;
 
 		$manager = self::getInstance(['driver' => self::getNameDriver()]);
 		$manager
 			->make($file)
-			->resize($max_width, $max_height, function ($constraint) {
+			->fit($max_width, $max_height, function ($constraint) {
 				$constraint->aspectRatio();
 			})
-			->resizeCanvas($max_width, $max_height)
 			->save($file);
 
 	}
 
+	/**
+	 * @param   array  $options
+	 *
+	 * @return \Intervention\Image\ImageManager
+	 *
+	 * @since version
+	 */
+	public static function getInstance($options = ['driver' => 'gd'])
+	{
+
+		// only for Joomla 4.x|5x
+		JLoader::registerNamespace('Intervention\Image', JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage' . DIRECTORY_SEPARATOR . 'Intervention' . DIRECTORY_SEPARATOR . 'Image');
+
+
+		return Image::configure($options);
+	}
+
+	/**
+	 *
+	 * @return string
+	 *
+	 * @since version
+	 */
+	public static function getNameDriver()
+	{
+		if (extension_loaded('imagick'))
+		{
+			return 'imagick';
+		}
+
+		return 'gd';
+	}
 
 	/**
 	 * @param   string  $file
@@ -216,7 +234,6 @@ class Manager
 
 	}
 
-
 	/**
 	 * @param   string  $file
 	 * @param   int     $width_fit
@@ -225,39 +242,21 @@ class Manager
 	 *
 	 * @since version
 	 */
-	public static function fit($file, $width_fit, $height_fit)
+	public static function resize($file, $width_fit, $height_fit)
 	{
 		list($width, $height, $type, $attr) = getimagesize($file);
-		$newWidth   = $width;
-		$newHeight  = $height;
 		$max_width  = (int) $width_fit;
 		$max_height = (int) $height_fit;
 
 		$manager = self::getInstance(['driver' => self::getNameDriver()]);
 		$manager
 			->make($file)
-			->fit($max_width, $max_height, function ($constraint) {
+			->resize($max_width, $max_height, function ($constraint) {
 				$constraint->aspectRatio();
 			})
+			->resizeCanvas($max_width, $max_height)
 			->save($file);
 
-	}
-
-
-	/**
-	 *
-	 * @return string
-	 *
-	 * @since version
-	 */
-	public static function getNameDriver()
-	{
-		if (extension_loaded('imagick'))
-		{
-			return 'imagick';
-		}
-
-		return 'gd';
 	}
 
 

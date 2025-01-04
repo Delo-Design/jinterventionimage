@@ -1,0 +1,50 @@
+{
+  "type": "joomla-library",
+  "description": "MPDF for Joomla",
+  "license": "GPL-2.0-only",
+  "homepage": "https://github.com/Delo-Design/jmpdf",
+  "authors": [
+    {
+      "name": "Dmitrii Cymbal",
+      "role": "Developer, maintainer",
+      "email": "cymbal@delo-design.ru",
+      "homepage": "https://delo-design.ru"
+    },
+    {
+      "name": "Sergey Tolkachyov",
+      "role": "Maintainer",
+      "email": "info@web-tolk.ru",
+      "homepage": "https://web-tolk.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^8.0",
+    "ext-json": "*",
+    "intervention/image": "^3.10"
+  },
+  "replace": {
+    "psr/log": "*",
+    "psr/http-message": "*"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.1"
+    },
+    "vendor-dir": "libraries/vendor",
+    "github-protocols": [
+      "https"
+    ],
+    "prepend-autoloader": false
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@udate-manifest"
+    ],
+    "post-update-cmd": [
+      "@udate-manifest"
+    ],
+    "udate-manifest": "@php ./cli/update-manifest.php"
+  }
+}
