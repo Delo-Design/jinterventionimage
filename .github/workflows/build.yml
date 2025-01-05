@@ -52,7 +52,7 @@ jobs:
       - name: Build release archive
         run: |
           export TERM=xterm
-          zip -r lib_jinterventionimage.zip libraries src jinterventionimage.xml
+          zip -r lib_jinterventionimage.zip libraries language src jinterventionimage.xml script.php
       - name: Draft release
         uses: softprops/action-gh-release@v2
         with:
