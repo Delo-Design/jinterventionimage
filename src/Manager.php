@@ -1,6 +1,4 @@
 <?php
-
-namespace Joomla\Libraries\JInterventionimage;
 /**
  * @package    jinterventionimage
  * @author     Dmitry Tsymbal <cymbal@delo-design.ru>
@@ -8,6 +6,8 @@ namespace Joomla\Libraries\JInterventionimage;
  * @license    GNU General Public License version 3 or later; see license.txt
  * @link       https://delo-design.ru
  */
+
+namespace Joomla\Libraries\JInterventionimage;
 
 require_once JPATH_LIBRARIES . DIRECTORY_SEPARATOR . '/jInterventionimage/libraries/vendor/autoload.php';
 

@@ -11,6 +11,11 @@
     <version>BUILD_VERSION</version>
     <description>Library for images.</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
+    <scriptfile>script.php</scriptfile>
+    <languages>
+        <language tag="ru-RU">language/ru-RU/lib_jinterventionimage.sys.ini</language>
+        <language tag="en-GB">language/en-GB/lib_jinterventionimage.sys.ini</language>
+    </languages>
     <files>
         <folder>libraries</folder>
         <folder>src</folder>
