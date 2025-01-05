@@ -9,7 +9,7 @@
 
 namespace Joomla\Libraries\JInterventionimage;
 
-require_once JPATH_LIBRARIES . DIRECTORY_SEPARATOR . '/jInterventionimage/libraries/vendor/autoload.php';
+require_once JPATH_LIBRARIES . DIRECTORY_SEPARATOR . 'jinterventionimage'. DIRECTORY_SEPARATOR . 'libraries'. DIRECTORY_SEPARATOR . 'vendor'. DIRECTORY_SEPARATOR . 'autoload.php';
 
 use Intervention\Image\ImageManager;
 use Joomla\Filesystem\Folder;
@@ -157,7 +157,7 @@ class Manager
     public static function getInstance(array $options = ['driver' => 'gd']): ImageManager
     {
 
-        $driverClassName = 'Intervention\Image\Drivers\\' . strtoupper($options['driver']) . '\Driver';
+        $driverClassName = 'Intervention\Image\Drivers\\' . ucfirst($options['driver']) . '\Driver';
 
         return new ImageManager(
             new $driverClassName()
