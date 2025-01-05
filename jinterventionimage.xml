@@ -9,7 +9,7 @@
     <authorEmail></authorEmail>
     <authorUrl>https://image.intervention.io</authorUrl>
     <version>BUILD_VERSION</version>
-    <description>Library for images.</description>
+    <description>JINTERVENTIONIMAGE_DESC</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
     <scriptfile>script.php</scriptfile>
     <languages>
