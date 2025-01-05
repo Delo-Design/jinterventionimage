@@ -21,4 +21,4 @@ $manifest = preg_replace("#(<version>).*?(</version>)#isu", '${1}' . $find_versi
 
 file_put_contents($manifest_path, $manifest);
 
-echo "Manifest update - complete" . PHP_EOL;
+echo "Manifest update - complete. New version is ".$find_version . PHP_EOL;

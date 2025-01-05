@@ -11,6 +11,11 @@
     <version>BUILD_VERSION</version>
     <description>Library for images.</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
+    <files>
+        <folder>libraries</folder>
+        <folder>src</folder>
+        <filename>jinterventionimage.xml</filename>
+    </files>
     <updateservers>
         <server type="extension" priority="1" name="Lib JInterventionimage">
             https://hika.su/update/free/lib_jinterventionimage.xml
@@ -19,10 +24,4 @@
             https://web-tolk.ru/component/swjprojects/jupdate?element=lib_jinterventionimage
         </server>
     </updateservers>
-    <files>
-        <folder>libraries</folder>
-        <folder>src</folder>
-        <filename>jinterventionimage.xml</filename>
-    </files>
-
 </extension>
