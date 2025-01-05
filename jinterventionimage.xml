@@ -20,6 +20,7 @@
         <folder>libraries</folder>
         <folder>src</folder>
         <filename>jinterventionimage.xml</filename>
+        <filename>script.php</filename>
     </files>
     <updateservers>
         <server type="extension" priority="1" name="Lib JInterventionimage">
