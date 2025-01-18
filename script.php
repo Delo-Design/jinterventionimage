@@ -15,7 +15,6 @@ use Joomla\Database\DatabaseDriver;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\CMS\Version;
-use function defined;
 
 defined('_JEXEC') or die;
 
