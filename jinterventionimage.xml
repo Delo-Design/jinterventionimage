@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.7.1.2" type="library" method="upgrade">
+<extension type="library" method="upgrade">
     <name>Jinterventionimage</name>
     <libraryname>jinterventionimage</libraryname>
     <author>https://olivervogel.com</author>
     <creationDate>2013</creationDate>
-    <copyright>http://image.intervention.io/legal/license</copyright>
+    <copyright>https://image.intervention.io/legal/license</copyright>
     <license>MIT License</license>
     <authorEmail></authorEmail>
-    <authorUrl>http://image.intervention.io</authorUrl>
-    <version>2.7.3</version>
-    <description>Library for images.</description>
+    <authorUrl>https://image.intervention.io</authorUrl>
+    <version>BUILD_VERSION</version>
+    <description>JINTERVENTIONIMAGE_DESC</description>
     <namespace path="src">Joomla\Libraries\JInterventionimage</namespace>
-
+    <scriptfile>script.php</scriptfile>
+    <languages>
+        <language tag="ru-RU">language/ru-RU/lib_jinterventionimage.sys.ini</language>
+        <language tag="en-GB">language/en-GB/lib_jinterventionimage.sys.ini</language>
+    </languages>
+    <files>
+        <folder>libraries</folder>
+        <folder>src</folder>
+        <filename>jinterventionimage.xml</filename>
+        <filename>script.php</filename>
+    </files>
     <updateservers>
         <server type="extension" priority="1" name="Lib JInterventionimage">
             https://hika.su/update/free/lib_jinterventionimage.xml
         </server>
         <server type="extension" priority="2" name="WebTolk Lib JInterventionimage">
-            https://web-tolk.ru/component/swjprojects/jupdate.html?element=lib_jinterventionimage
+            https://web-tolk.ru/component/swjprojects/jupdate?element=lib_jinterventionimage
         </server>
     </updateservers>
-
-    <files>
-        <folder>Intervention</folder>
-        <folder>src</folder>
-    </files>
-
 </extension>
